@@ -14,6 +14,7 @@ Run your container in AWS Fargate.
     secret_key:
       from_secret: secret_key
     repo: api-sample
+    region: ap-northeast-1
     registry:
       from_secret: registry
     auto_tag: true
