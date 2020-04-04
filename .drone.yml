@@ -1,0 +1,30 @@
+---
+kind: pipeline
+name: linux-amd64
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+
+- name: publish
+  pull: always
+  image: plugins/ecr
+  settings:
+    access_key:
+      from_secret: access_key
+    secret_key:
+      from_secret: secret_key
+    repo: api-sample
+    registry:
+      from_secret: registry
+    auto_tag: true
+    daemon_off: false
+    dockerfile: Dockerfile
+    password:
+      from_secret: docker_password
+  when:
+    event:
+      exclude:
+      - pull_request

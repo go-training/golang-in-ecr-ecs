@@ -1,2 +1,3 @@
-# golang-in-ecr-ecs
-Run your container in AWS Fargate
+# golang in AWS ECR + ECS
+
+Run your container in AWS Fargate.
