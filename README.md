@@ -20,8 +20,6 @@ Run your container in AWS Fargate.
     auto_tag: true
     daemon_off: false
     dockerfile: Dockerfile
-    password:
-      from_secret: docker_password
   when:
     event:
       exclude:

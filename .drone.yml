@@ -12,7 +12,6 @@ steps:
   pull: always
   image: plugins/ecr
   settings:
-    debug: true
     access_key:
       from_secret: aws_access_key_id
     secret_key:
