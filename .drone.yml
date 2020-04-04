@@ -16,8 +16,7 @@ steps:
       from_secret: aws_access_key_id
     secret_key:
       from_secret: aws_secret_access_key
-    repo:
-      from_secret: repo
+    repo: api-sample
     region: ap-northeast-1
     registry:
       from_secret: registry
