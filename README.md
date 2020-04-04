@@ -10,9 +10,9 @@ Run your container in AWS Fargate.
   image: plugins/ecr
   settings:
     access_key:
-      from_secret: access_key
+      from_secret: aws_access_key_id
     secret_key:
-      from_secret: secret_key
+      from_secret: aws_secret_access_key
     repo: api-sample
     region: ap-northeast-1
     registry:
