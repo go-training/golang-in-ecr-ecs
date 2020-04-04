@@ -17,6 +17,8 @@ steps:
     secret_key:
       from_secret: aws_secret_access_key
     repo: api-sample
+    cache_from:
+      from_secret: cache
     region: ap-northeast-1
     registry:
       from_secret: registry
