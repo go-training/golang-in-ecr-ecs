@@ -2,7 +2,9 @@
 
 Run your container in AWS Fargate.
 
-## Publish your image to AWS ECR using Drone CI
+## Publish your image to AWS ECR
+
+Deploy with [Drone CI](https://drone.io/)
 
 ```yml
 - name: publish
@@ -24,4 +26,23 @@ Run your container in AWS Fargate.
     event:
       exclude:
       - pull_request
+```
+
+Deploy with [GitHub action](https://github.com/features/actions)
+
+```yml
+build:
+  name: upload image
+  runs-on: ubuntu-latest
+  steps:
+  - uses: actions/checkout@master
+  - name: upload image to ECR
+    uses: appleboy/docker-ecr-action@v0.0.1
+    with:
+      access_key: ${{ secrets.aws_access_key_id }}
+      secret_key: ${{ secrets.aws_secret_access_key }}
+      registry: ${{ secrets.registry }}
+      cache_from: ${{ secrets.cache }}
+      repo: api-sample
+      region: ap-northeast-1
 ```
