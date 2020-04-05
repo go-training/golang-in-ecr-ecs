@@ -1,0 +1,18 @@
+name: AWS Fargate
+on: [push]
+jobs:
+
+  build:
+    name: upload image
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: upload image to ECR
+      uses: appleboy/docker-ecr-action@v0.0.1
+      with:
+        access_key: ${{ secrets.aws_access_key_id }}
+        secret_key: ${{ secrets.aws_secret_access_key }}
+        registry: ${{ secrets.registry }}
+        cache_from: ${{ secrets.cache }}
+        repo: api-sample
+        region: ap-northeast-1
