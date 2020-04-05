@@ -37,7 +37,7 @@ build:
   steps:
   - uses: actions/checkout@master
   - name: upload image to ECR
-    uses: appleboy/docker-ecr-action@v0.0.1
+    uses: appleboy/docker-ecr-action@v0.0.2
     with:
       access_key: ${{ secrets.aws_access_key_id }}
       secret_key: ${{ secrets.aws_secret_access_key }}
