@@ -23,6 +23,14 @@ The following minimum permissions are required for pushing and pulling images in
             "ecr:CompleteLayerUpload"
          ],
          "Resource":"arn:aws:ecr:us-east-1:123456789012:repository/my-repo"
+      },
+      {
+         "Sid":"GetAuthorizationToken",
+         "Effect":"Allow",
+         "Action":[
+            "ecr:GetAuthorizationToken"
+         ],
+         "Resource":"*"
       }
    ]
 }
