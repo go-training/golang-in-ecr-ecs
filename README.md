@@ -28,7 +28,7 @@ Deploy with [Drone CI](https://drone.io/)
       - pull_request
 ```
 
-Deploy with [GitHub action](https://github.com/features/actions)
+Deploy with [GitHub Actions](https://github.com/features/actions)
 
 ```yml
 build:
