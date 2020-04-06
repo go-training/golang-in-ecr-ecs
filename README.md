@@ -2,6 +2,32 @@
 
 Run your container in AWS Fargate.
 
+## Permissions
+
+The following minimum permissions are required for pushing and pulling images in an ECR repository:
+
+```json
+{
+   "Version":"2012-10-17",
+   "Statement":[
+      {
+         "Sid":"AllowPush",
+         "Effect":"Allow",
+         "Action":[
+            "ecr:GetDownloadUrlForLayer",
+            "ecr:BatchGetImage",
+            "ecr:BatchCheckLayerAvailability",
+            "ecr:PutImage",
+            "ecr:InitiateLayerUpload",
+            "ecr:UploadLayerPart",
+            "ecr:CompleteLayerUpload"
+         ],
+         "Resource":"arn:aws:ecr:us-east-1:123456789012:repository/my-repo"
+      }
+   ]
+}
+```
+
 ## Publish your image to AWS ECR
 
 Deploy with [Drone CI](https://drone.io/)
