@@ -6,7 +6,6 @@ Run your container in AWS Fargate.
 
 The following minimum permissions are required for pushing and pulling images in an ECR repository:
 
-
 ```json
 {
    "Version":"2012-10-17",
