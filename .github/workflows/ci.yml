@@ -1,5 +1,9 @@
 name: AWS ECR With Appleboy Plugin
 on: [push]
+
+env:
+  AWS_REGION : ap-northeast-1
+
 jobs:
 
   build:
