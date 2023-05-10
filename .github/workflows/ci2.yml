@@ -1,5 +1,10 @@
 name: AWS ECR With ECR Plugin
 on: [push]
+
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
 
   build:
