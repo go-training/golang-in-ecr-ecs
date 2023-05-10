@@ -1,8 +1,11 @@
 FROM golang:1.20-alpine
 
+ARG TARGETOS
+ARG TARGETARCH
+
 LABEL maintainer="Bo-Yi Wu <appleboy.tw@gmail.com>"
 
-RUN apk add bash ca-certificates git gcc g++ libc-dev
+RUN apk add ca-certificates
 WORKDIR /app
 # Force the go compiler to use modules
 ENV GO111MODULE=on
@@ -11,8 +14,8 @@ COPY go.mod .
 COPY go.sum .
 COPY main.go .
 
-ENV GOOS=linux
-ENV GOARCH=amd64
+ENV GOOS=${TARGETOS}
+ENV GOARCH=${TARGETARCH}
 RUN go build -o /app -tags netgo -ldflags '-w -extldflags "-static"' .
 
 CMD ["/app"]

@@ -36,6 +36,11 @@ jobs:
       #     docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
       #     docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
 
+      - name: Login to ECR
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ steps.login-ecr.outputs.registry }}
+
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
