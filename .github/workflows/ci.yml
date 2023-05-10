@@ -13,6 +13,6 @@ jobs:
         access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
         secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         registry: ${{ secrets.REGISTRY }}
-        repo: ${{ secrets.REPO }}
+        repo: ${{ secrets.TEST_REPO }}
         region: ap-northeast-1
         auto_tag: true
