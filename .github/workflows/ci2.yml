@@ -56,7 +56,7 @@ jobs:
         with:
           images: |
             ${{ steps.login-ecr.outputs.registry }}
-            ghcr.io/${{ github.repository }}
+
           tags: |
             type=raw,value=latest,enable={{is_default_branch}}
             type=semver,pattern={{version}}
