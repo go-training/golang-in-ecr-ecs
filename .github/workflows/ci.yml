@@ -15,3 +15,4 @@ jobs:
         registry: ${{ secrets.REGISTRY }}
         repo: ${{ secrets.REPO }}
         region: ap-northeast-1
+        auto_tag: true
