@@ -1,21 +1,20 @@
-FROM golang:1.20-alpine
+FROM alpine:3.17
 
 ARG TARGETOS
 ARG TARGETARCH
 
-LABEL maintainer="Bo-Yi Wu <appleboy.tw@gmail.com>"
+LABEL maintainer="Bo-Yi Wu <appleboy.tw@gmail.com>" \
+  org.label-schema.name="Test App" \
+  org.label-schema.vendor="Bo-Yi Wu" \
+  org.label-schema.schema-version="1.0"
 
-# RUN apk add ca-certificates
-# WORKDIR /app
-# # Force the go compiler to use modules
-# ENV GO111MODULE=on
-# # We want to populate the module cache based on the go.{mod,sum} files.
-# COPY go.mod .
-# COPY go.sum .
-# COPY main.go .
+LABEL org.opencontainers.image.source=https://github.com/go-training/golang-in-ecr-ecs
+LABEL org.opencontainers.image.description="Test App."
+LABEL org.opencontainers.image.licenses=MIT
 
-# ENV GOOS=${TARGETOS}
-# ENV GOARCH=${TARGETARCH}
-# RUN go build -o /app -tags netgo -ldflags '-w -extldflags "-static"' .
+RUN apk add --no-cache ca-certificates=20220614-r4 && \
+  rm -rf /var/cache/apk/*
 
-CMD ["/app"]
+COPY release/${TARGETOS}/${TARGETARCH}/app /bin/
+
+ENTRYPOINT ["/bin/app"]
