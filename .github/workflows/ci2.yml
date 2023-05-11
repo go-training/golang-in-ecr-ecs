@@ -44,6 +44,8 @@ jobs:
           REPOSITORY: ${{ secrets.API_REPO }}
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          docker build --build-arg TARGETOS=linux --build-arg TARGETARCH=amd64 -t $REGISTRY/$REPOSITORY:$IMAGE_TAG -t $REGISTRY/$REPOSITORY:latest .
+          docker build --build-arg TARGETOS=linux --build-arg TARGETARCH=amd64 \
+            -t $REGISTRY/$REPOSITORY:$IMAGE_TAG -t \
+            $REGISTRY/$REPOSITORY:latest .
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
           docker push $REGISTRY/$REPOSITORY:latest
